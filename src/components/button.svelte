@@ -1,23 +1,23 @@
 <script lang="ts">
     export let type: string
+    export let hero: boolean
 </script>
 
-<button 
+<button
     class="button"
     class:button--primary={type === "primary"}
     class:button--secondary={type === "secondary"}
+    class:button--hero={hero}
 >
-    <slot />
+    <span class="button__label">
+        <slot />
+    </span>
 </button>
 
 <style>
     .button {
-        width: auto;
-        height: auto;
-        padding: 1.6rem 2rem;
+        display: flex;
         border-radius: 0.6rem;
-        font-size: 1.6rem;
-        font-weight: 500;
     }
 
     .button--primary {
@@ -29,5 +29,17 @@
         background-color: var(--color-white);
         color: var(--color-very-dark-blue);
         box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+
+    .button--hero {
+        width: calc(50% - 1rem);
+        height: 6rem;
+    }
+
+    .button__label {
+        display: block;
+        margin: auto;
+        font-size: 1.6rem;
+        font-weight: 500;
     }
 </style>
