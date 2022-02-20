@@ -61,6 +61,7 @@
     .features {
         width: 100%;
         height: auto;
+        margin-bottom: 10rem;
     }
 
     .features__title {

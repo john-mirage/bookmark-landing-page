@@ -1,6 +1,7 @@
 <script lang="ts">
     export let type: string
-    export let hero: boolean
+    export let hero: boolean = false
+    export let browser: boolean = false
 </script>
 
 <button
@@ -8,6 +9,7 @@
     class:button--primary={type === "primary"}
     class:button--secondary={type === "secondary"}
     class:button--hero={hero}
+    class:button--browser={browser}
 >
     <span class="button__label">
         <slot />
@@ -33,6 +35,11 @@
 
     .button--hero {
         width: calc(50% - 1rem);
+        height: 6rem;
+    }
+
+    .button--browser {
+        width: 100%;
         height: 6rem;
     }
 

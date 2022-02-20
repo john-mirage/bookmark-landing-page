@@ -2,12 +2,14 @@
     import TopAppBar from '@components/top-app-bar.svelte'
     import Hero from '@components/hero.svelte'
     import Features from '@components/features.svelte'
+    import Extensions from '@components/extensions.svelte';
 </script>
 
 <main class="page">
     <TopAppBar />
     <Hero />
     <Features />
+    <Extensions />
 </main>
 
 <style>
