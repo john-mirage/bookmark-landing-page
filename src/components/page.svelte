@@ -1,11 +1,13 @@
 <script lang="ts">
     import TopAppBar from '@components/top-app-bar.svelte'
     import Hero from '@components/hero.svelte'
+    import Features from '@components/features.svelte'
 </script>
 
 <main class="page">
     <TopAppBar />
     <Hero />
+    <Features />
 </main>
 
 <style>

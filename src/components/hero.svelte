@@ -1,12 +1,13 @@
 <script lang="ts">
     import Container from '@components/container.svelte'
+    import Shape from '@components/shape.svelte'
     import Button from '@components/button.svelte'
 </script>
 
 <div class="hero">
     <div class="hero__header">
         <img class="hero__illustration" src="src/assets/images/illustration-hero.svg" alt="Tablet illustration">
-        <div class="hero__shape"></div>
+        <Shape right />
     </div>
 
     <div class="hero__body">
@@ -26,6 +27,7 @@
         width: 100%;
         height: auto;
         padding-top: 5rem;
+        padding-bottom: 10rem;
     }
 
     .hero__header {
@@ -38,18 +40,7 @@
     .hero__illustration {
         position: relative;
         z-index: 20;
-    }
-
-    .hero__shape {
-        position: absolute;
-        z-index: 10;
-        bottom: 0;
-        right: 0;
-        width: 80%;
-        height: 80%;
-        border-top-left-radius: 9999px;
-        border-bottom-left-radius: 9999px;
-        background-color: var(--color-soft-blue);
+        width: 100%;
     }
 
     .hero__body {
@@ -58,10 +49,10 @@
     }
 
     .hero__title {
-        font-size: 3.2rem;
+        font-size: 3.6rem;
         font-weight: 500;
         color: var(--color-very-dark-blue);
-        line-height: 4rem;
+        line-height: 4.4rem;
         text-align: center;
         margin-bottom: 2rem;
     }

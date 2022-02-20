@@ -1,5 +1,4 @@
 <script lang="ts">
-
 </script>
 
 <div class="container">
@@ -9,7 +8,7 @@
 <style>
     .container {
         width: 100%;
-        height: 100%;
+        height: auto;
         padding-left: 2.4rem;
         padding-right: 2.4rem;
     }
