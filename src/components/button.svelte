@@ -10,10 +10,11 @@
         class:button--primary={type === "primary"}
         class:button--secondary={type === "secondary"}
         class:button--contact={type === "contact"}
+        class:button--outlined={type === "outlined"}
         class:button--centered={centered}
         style:width={buttonWidth}
     >
-        <span class="button__label">
+        <span class="button__label" class:button__label--uppercase={type === "outlined"}>
             <slot />
         </span>
     </button>
@@ -45,6 +46,11 @@
             color: variables.$color-white;
         }
 
+        &--outlined {
+            border: 0.2rem solid variables.$color-white;
+            color: variables.$color-white;
+        }
+
         &--centered {
             margin-left: auto;
             margin-right: auto;
@@ -56,6 +62,13 @@
             font-size: 1.6rem;
             font-weight: 500;
             line-height: 2.2rem;
+
+            &--uppercase {
+                font-size: 2rem;
+                font-weight: 400;
+                letter-spacing: 0.2rem;
+                text-transform: uppercase;
+            }
         }
     }
 </style>
