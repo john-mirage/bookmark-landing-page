@@ -2,10 +2,11 @@
     import BookmarkIcon from '@components/icon-bookmark.svelte'
     import IconButton from '@components/icon-button.svelte'
     import HamburgerIcon from '@components/icon-hamburger.svelte'
+    export let hasShadow: boolean
 </script>
 
 <template>
-    <header class="top-app-bar">
+    <header class="top-app-bar" class:top-app-bar--shadow={hasShadow}>
         <div class="top-app-bar__container">
             <div class="top-app-bar__content">
                 <BookmarkIcon />
@@ -30,9 +31,13 @@
         flex-direction: column;
         justify-content: flex-end;
         width: 100%;
-        height: 10rem;
+        height: 8rem;
         background-color: variables.$color-white;
-        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+        &--shadow {
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            height: auto;
+        }
 
         &__container {
             @include mixins.container;
@@ -45,7 +50,8 @@
             align-items: center;
             width: 100%;
             height: auto;
-            padding-bottom: 2rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
         }
     }
 </style>

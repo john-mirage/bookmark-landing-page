@@ -17,6 +17,6 @@
 <style lang="scss">
     .icon-bookmark {
         width: auto;
-        height: 3rem;
+        height: 2.8rem;
     }
 </style>
