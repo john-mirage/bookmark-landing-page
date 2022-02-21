@@ -1,7 +1,7 @@
 <script lang="ts">
     export let type: string
-    export let hero: boolean = false
-    export let browser: boolean = false
+    export let buttonWidth: string = "100%"
+    export let centered: boolean = false
 </script>
 
 <template>
@@ -9,8 +9,9 @@
         class="button"
         class:button--primary={type === "primary"}
         class:button--secondary={type === "secondary"}
-        class:button--hero={hero}
-        class:button--browser={browser}
+        class:button--contact={type === "contact"}
+        class:button--centered={centered}
+        style:width={buttonWidth}
     >
         <span class="button__label">
             <slot />
@@ -23,6 +24,9 @@
 
     .button {
         display: flex;
+        height: 6rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
         border-radius: 0.6rem;
         
         &--primary {
@@ -36,14 +40,14 @@
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
         }
 
-        &--hero {
-            width: calc(50% - 1rem);
-            height: 6rem;
+        &--contact {
+            background-color: variables.$color-soft-red;
+            color: variables.$color-white;
         }
-        
-        &--browser {
-            width: 100%;
-            height: 6rem;
+
+        &--centered {
+            margin-left: auto;
+            margin-right: auto;
         }
 
         &__label {

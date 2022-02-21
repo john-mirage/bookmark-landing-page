@@ -15,7 +15,7 @@
         <h4 class="browser__name">Add to { browser.name }</h4>
         <p class="browser__min-version">Minimum version { browser.minVersion }</p>
         <div class="browser__divider"></div>
-        <Button type="primary" browser>Add & Install Extension</Button>
+        <Button type="primary">Add & Install Extension</Button>
     </li>
 </template>
 

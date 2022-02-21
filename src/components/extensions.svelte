@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Browser from '@components/browser.svelte'
+    import Extension from '@components/extension.svelte'
     import ChromeLogo from '@assets/images/logo-chrome.svg'
     import FirefoxLogo from '@assets/images/logo-firefox.svg'
     import OperaLogo from '@assets/images/logo-opera.svg'
@@ -30,9 +30,9 @@
         <div class="extensions__container">
             <h2 class="extensions__title">Download the extension</h2>
             <p class="extensions__subtitle">We've got more browsers in the pipeline. Please do let us know if you've got a favourite you'd like us to prioritize.</p>
-            <ul class="extensions__browsers">
+            <ul class="extensions__list">
                 {#each browsers as browser}
-                    <Browser browser={browser} />
+                    <Extension browser={browser} />
                 {/each}
             </ul>
         </div>
@@ -46,6 +46,7 @@
     .extensions {
         width: 100%;
         height: auto;
+        margin-bottom: 10rem;
 
         &__container {
             @include mixins.container;

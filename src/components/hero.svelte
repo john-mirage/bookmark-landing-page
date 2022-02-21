@@ -15,8 +15,8 @@
                 <h1 class="hero__title">A simple Bookmark Manager</h1>
                 <p class="hero__subtitle">A clean and simple interface to organize your favourite websites. Open a new browser tab and see your sites load instantly. Try it for free.</p>
                 <div class="hero__actions">
-                    <Button hero type="primary">Get it on Chrome</Button>
-                    <Button hero type="secondary">Get it on Firefox</Button>
+                    <Button type="primary" buttonWidth="calc(50% - 1rem)">Get it on Chrome</Button>
+                    <Button type="secondary" buttonWidth="calc(50% - 1rem)">Get it on Firefox</Button>
                 </div>
             </div>
         </div>

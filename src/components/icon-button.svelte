@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let right: boolean
+    export let right: boolean = false
 </script>
 
 <template>

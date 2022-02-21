@@ -3,6 +3,9 @@
     import Hero from '@components/hero.svelte'
     import Features from '@components/features.svelte'
     import Extensions from '@components/extensions.svelte';
+    import FrequentlyAskedQuestions from '@components/frequently-asked-questions.svelte'
+    import Contact from '@components/contact.svelte'
+    import Footer from '@components/footer.svelte'
 </script>
 
 <template>
@@ -11,6 +14,9 @@
         <Hero />
         <Features />
         <Extensions />
+        <FrequentlyAskedQuestions />
+        <Contact />
+        <Footer />
     </main>
 </template>
 
@@ -19,6 +25,5 @@
         width: 100%;
         height: auto;
         padding-top: 10rem;
-        padding-bottom: 10rem;
     }
 </style>
