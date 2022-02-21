@@ -1,5 +1,4 @@
 <script lang="ts">
-    import Container from '@components/container.svelte'
     import Shape from '@components/shape.svelte'
     interface Feature {
         name: string;
@@ -11,62 +10,65 @@
     export let feature: Feature
 </script>
 
-<div class="feature">
-    <div class="feature__header">
-        <Container>
-            <img class="feature__illustration" src={feature.imageSrc} alt={feature.imageAlt}>
-        </Container>
-        <Shape left />
+<template>
+    <div class="feature">
+        <div class="feature__header">
+            <div class="feature__container">
+                <img class="feature__illustration" src={feature.imageSrc} alt={feature.imageAlt}>
+            </div>
+            <Shape left />
+        </div>
+        
+        <div class="feature__body">
+            <div class="feature__container">
+                <h3 class="feature__title">{ feature.name }</h3>
+                <p class="feature__subtitle">{ feature.description }</p>
+            </div>
+        </div>
     </div>
-    
-    <div class="feature__body">
-        <Container>
-            <h3 class="feature__title">{ feature.name }</h3>
-            <p class="feature__subtitle">{ feature.description }</p>
-        </Container>
-    </div>
-</div>
+</template>
 
-<style>
+<style lang="scss">
+    @use '../assets/styles/variables';
+    @use '../assets/styles/mixins';
+
     .feature {
         width: 100%;
         height: auto;
-    }
 
-    .feature__header {
-        position: relative;
-        width: 100%;
-        height: auto;
-        padding-bottom: 5rem;
-        margin-bottom: 5rem;
-    }
+        &__container {
+            @include mixins.container;
+        }
 
-    .feature__illustration {
-        position: relative;
-        z-index: 20;
-        width: 100%;
-    }
+        &__header {
+            position: relative;
+            width: 100%;
+            height: auto;
+            padding-bottom: 5rem;
+            margin-bottom: 5rem;
+        }
 
-    .feature__body {
-        width: 100%;
-        height: auto;
-    }
+        &__illustration {
+            position: relative;
+            z-index: 20;
+            width: 100%;
+        }
 
-    .feature__title {
-        font-size: 2.8rem;
-        font-weight: 500;
-        color: var(--color-very-dark-blue);
-        line-height: 3.2rem;
-        text-align: center;
-        margin-bottom: 2rem;
-    }
+        &__body {
+            width: 100%;
+            height: auto;
+        }
 
-    .feature__subtitle {
-        font-size: 1.8rem;
-        font-weight: 400;
-        color: var(--color-grayish-blue);
-        line-height: 3rem;
-        text-align: center;
-        margin-bottom: 4rem;
+        &__title {
+            @include mixins.text-display;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        &__subtitle {
+            @include mixins.text-body;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
     }
 </style>

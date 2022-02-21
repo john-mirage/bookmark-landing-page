@@ -5,18 +5,20 @@
     export let setActiveTab: (newIndex: number) => void
 </script>
 
-<ul class="tabs">
-    {#each tabs as tab, index}
-        <Tab
-            active={index === activeTab}
-            tabLabel={tab}
-            tabIndex={index}
-            setActiveTab={setActiveTab}
-        />
-    {/each}
-</ul>
+<template>
+    <ul class="tabs">
+        {#each tabs as tab, index}
+            <Tab
+                active={index === activeTab}
+                tabLabel={tab}
+                tabIndex={index}
+                setActiveTab={setActiveTab}
+            />
+        {/each}
+    </ul>
+</template>
 
-<style>
+<style lang="scss">
     .tabs {
         display: flex;
         flex-direction: column;

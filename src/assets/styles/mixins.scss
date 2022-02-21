@@ -1,0 +1,44 @@
+@use './variables';
+
+@mixin container {
+    width: 100%;
+    height: auto;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+
+    @media screen and (min-width: variables.$screen-sm) {
+        width: variables.$container-sm;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @media screen and (min-width: variables.$screen-md) {
+        width: variables.$container-md;
+    }
+
+    @media screen and (min-width: variables.$screen-lg) {
+        width: variables.$container-lg;
+    }
+
+    @media screen and (min-width: variables.$screen-xl) {
+        width: variables.$container-xl;
+    }
+
+    @media screen and (min-width: variables.$screen-2xl) {
+        width: variables.$container-2xl;
+    }
+}
+
+@mixin text-display {
+    font-size: 2.8rem;
+    font-weight: 500;
+    color: variables.$color-very-dark-blue;
+    line-height: 3.2rem;
+}
+
+@mixin text-body {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: variables.$color-grayish-blue;
+    line-height: 3rem;
+}
