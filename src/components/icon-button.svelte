@@ -1,9 +1,9 @@
 <script lang="ts">
-    export let right: boolean = false
+
 </script>
 
 <template>
-    <button class="icon-button" class:icon-button--right={right}>
+    <button class="icon-button">
         <span class="icon-button__icon">
             <slot />
         </span>
@@ -16,10 +16,6 @@
         width: 4.8rem;
         height: 4.8rem;
         border-radius: 9999px;
-
-        &--right {
-            margin-right: -1.2rem;
-        }
 
         &__icon {
             display: block;

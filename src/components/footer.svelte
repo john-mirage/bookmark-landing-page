@@ -1,7 +1,6 @@
 <script lang="ts">
     import BookmarkIcon from '@components/icon-bookmark.svelte'
-    import FacebookIcon from '@components/icon-facebook.svelte'
-    import TwitterIcon from '@components/icon-twitter.svelte'
+    import SocialNetworks from '@components/social-networks.svelte'
     const links = [
         "features",
         "pricing",
@@ -14,13 +13,10 @@
         <BookmarkIcon textColor="#fff" />
         <nav class="footer__navigation">
             {#each links as link}
-                <a class="footer__link" href="#">{ link }</a>
+                <a class="footer__link" href="/">{ link }</a>
             {/each}
         </nav>
-        <div class="footer__social-networks">
-            <FacebookIcon />
-            <TwitterIcon />
-        </div>
+        <SocialNetworks />
     </footer>
 </template>
 
@@ -61,15 +57,6 @@
             &:last-child {
                 margin-bottom: 0;
             }
-        }
-
-        &__social-networks {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            width: 10rem;
-            height: auto;
         }
     }
 </style>

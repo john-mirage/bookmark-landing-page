@@ -58,7 +58,7 @@
         &__title {
             font-size: 3.6rem;
             font-weight: 500;
-            color: var(--color-very-dark-blue);
+            color: variables.$color-very-dark-blue;
             line-height: 4.4rem;
             text-align: center;
             margin-bottom: 2rem;

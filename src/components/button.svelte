@@ -55,6 +55,7 @@
             margin: auto;
             font-size: 1.6rem;
             font-weight: 500;
+            line-height: 2.2rem;
         }
     }
 </style>

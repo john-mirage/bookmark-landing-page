@@ -2,17 +2,34 @@
     import BookmarkIcon from '@components/icon-bookmark.svelte'
     import IconButton from '@components/icon-button.svelte'
     import HamburgerIcon from '@components/icon-hamburger.svelte'
-    export let hasShadow: boolean
+    import { onMount } from 'svelte';
+
+    let topAppBarHasShadow = false
+    function handleTopAppBarShadow() {
+        if (!topAppBarHasShadow && window.scrollY > 0) {
+            topAppBarHasShadow = true
+        } else if (topAppBarHasShadow && window.scrollY <= 0) {
+            topAppBarHasShadow = false
+        }
+    }
+
+    onMount(() => {
+        handleTopAppBarShadow()
+    })
 </script>
 
+<svelte:window on:scroll={handleTopAppBarShadow} />
+
 <template>
-    <header class="top-app-bar" class:top-app-bar--shadow={hasShadow}>
+    <header class="top-app-bar" class:top-app-bar--shadow={topAppBarHasShadow}>
         <div class="top-app-bar__container">
             <div class="top-app-bar__content">
                 <BookmarkIcon />
-                <IconButton right>
-                    <HamburgerIcon />
-                </IconButton>
+                <div class="top-app-bar__button" on:click>
+                    <IconButton>
+                        <HamburgerIcon />
+                    </IconButton>
+                </div>
             </div>
         </div>
     </header>
@@ -52,6 +69,12 @@
             height: auto;
             padding-top: 1rem;
             padding-bottom: 1rem;
+        }
+
+        &__button {
+            width: auto;
+            height: auto;
+            margin-right: -1.2rem;
         }
     }
 </style>

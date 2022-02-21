@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { onDestroy, onMount } from 'svelte';
     import TopAppBar from '@components/top-app-bar.svelte'
+    import Drawer from '@components/drawer.svelte'
     import Hero from '@components/hero.svelte'
     import Features from '@components/features.svelte'
     import Extensions from '@components/extensions.svelte';
@@ -8,28 +8,20 @@
     import Contact from '@components/contact.svelte'
     import Footer from '@components/footer.svelte'
 
-    let topAppBarHasShadow = false
+    let drawerIsOpen = false
 
-    function handleTopAppBarShadow() {
-        if (!topAppBarHasShadow && window.scrollY > 0) {
-            topAppBarHasShadow = true
-        } else if (topAppBarHasShadow && window.scrollY <= 0) {
-            topAppBarHasShadow = false
-        }
+    function handleDrawer(state: boolean) {
+        drawerIsOpen = state
     }
-
-    onMount(() => {
-        window.addEventListener("scroll", handleTopAppBarShadow)
-    })
-
-    onDestroy(() => {
-        window.removeEventListener("scroll", handleTopAppBarShadow)
-    })
 </script>
 
 <template>
     <main class="page">
-        <TopAppBar hasShadow={topAppBarHasShadow} />
+        {#if drawerIsOpen}
+            <Drawer on:click={() => handleDrawer(false)} />
+        {:else}
+            <TopAppBar on:click={() => handleDrawer(true)} />
+        {/if}
         <Hero />
         <Features />
         <Extensions />
