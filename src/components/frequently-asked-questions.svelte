@@ -65,6 +65,12 @@
             width: 100%;
             height: auto;
             margin-bottom: 4rem;
+
+            @media screen and (min-width: variables.$screen-md) {
+                width: variables.$container-md;
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
     }
 </style>

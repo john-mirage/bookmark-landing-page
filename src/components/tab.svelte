@@ -1,12 +1,10 @@
 <script lang="ts">
     export let active: boolean
     export let tabLabel: string
-    export let tabIndex: number
-    export let setActiveTab: (newIndex: number) => void
 </script>
 
 <template>
-    <li class="tab" on:click={() => setActiveTab(tabIndex)}>
+    <li class="tab" on:click>
         <span class="tab__label">{ tabLabel }</span>
         {#if active}
             <div class="tab__line"></div>

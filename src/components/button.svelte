@@ -1,20 +1,15 @@
 <script lang="ts">
-    export let type: string
-    export let buttonWidth: string = "100%"
-    export let centered: boolean = false
+    export let color: string
 </script>
 
 <template>
     <button
         class="button"
-        class:button--primary={type === "primary"}
-        class:button--secondary={type === "secondary"}
-        class:button--contact={type === "contact"}
-        class:button--outlined={type === "outlined"}
-        class:button--centered={centered}
-        style:width={buttonWidth}
+        class:button--blue={color === "blue"}
+        class:button--red={color === "red"}
+        class:button--white={color === "white"}
     >
-        <span class="button__label" class:button__label--uppercase={type === "outlined"}>
+        <span class="button__label">
             <slot />
         </span>
     </button>
@@ -25,50 +20,44 @@
 
     .button {
         display: flex;
-        height: 6rem;
-        padding-left: 2rem;
-        padding-right: 2rem;
+        width: 100%;
+        height: 4.8rem;
+        padding-left: 4rem;
+        padding-right: 4rem;
         border-radius: 0.6rem;
+        transition-property: color, background-color;
+        transition-duration: 150ms;
         
-        &--primary {
+        &--blue {
             background-color: variables.$color-soft-blue;
             color: variables.$color-white;
         }
 
-        &--secondary {
+        &--red {
+            background-color: variables.$color-soft-red;
+            color: variables.$color-white;
+
+            &:hover {
+                background-color: transparent;
+                outline: 0.2rem solid variables.$color-soft-red;
+                color: variables.$color-soft-red;
+            }
+        }
+
+        &--white {
             background-color: variables.$color-white;
             color: variables.$color-very-dark-blue;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
         }
 
-        &--contact {
-            background-color: variables.$color-soft-red;
-            color: variables.$color-white;
-        }
-
-        &--outlined {
-            border: 0.2rem solid variables.$color-white;
-            color: variables.$color-white;
-        }
-
-        &--centered {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
         &__label {
             display: block;
             margin: auto;
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-weight: 500;
             line-height: 2.2rem;
-
-            &--uppercase {
-                font-size: 2rem;
-                font-weight: 400;
-                letter-spacing: 0.2rem;
-                text-transform: uppercase;
-            }
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
         }
     }
 </style>

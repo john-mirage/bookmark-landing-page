@@ -63,5 +63,19 @@
             text-align: center;
             margin-bottom: 4rem;
         }
+        
+        &__list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+
+            @media screen and (min-width: variables.$screen-md) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media screen and (min-width: variables.$screen-lg) {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
     }
 </style>

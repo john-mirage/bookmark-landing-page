@@ -1,5 +1,4 @@
 <script lang="ts">
-    import Shape from '@components/shape.svelte'
     interface Feature {
         name: string;
         tabName: string;
@@ -16,7 +15,6 @@
             <div class="feature__container">
                 <img class="feature__illustration" src={feature.imageSrc} alt={feature.imageAlt}>
             </div>
-            <Shape left />
         </div>
         
         <div class="feature__body">
@@ -36,6 +34,12 @@
         width: 100%;
         height: auto;
 
+        @media screen and (min-width: variables.$screen-lg) {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
         &__container {
             @include mixins.container;
         }
@@ -46,6 +50,10 @@
             height: auto;
             padding-bottom: 5rem;
             margin-bottom: 5rem;
+
+            @media screen and (min-width: variables.$screen-lg) {
+                width: variables.$container-md;
+            }
         }
 
         &__illustration {

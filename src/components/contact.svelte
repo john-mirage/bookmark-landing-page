@@ -7,8 +7,12 @@
         <div class="contact__container">
             <p class="contact__members">35,000+ already joined</p>
             <h2 class="contact__cta">Stay up-to-date with what we're doing</h2>
-            <input class="contact__input" placeholder="Enter your email address" type="text">
-            <Button type="contact">Contact Us</Button>
+            <div class="contact__form">
+                <input class="contact__input" placeholder="Enter your email address" type="text">
+                <div class="contact__button">
+                    <Button type="contact">Contact Us</Button>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -46,6 +50,20 @@
             margin-bottom: 4rem;
         }
 
+        &__form {
+            width: 100%;
+            height: auto;
+
+            @media screen and (min-width: variables.$screen-md) {
+                width: variables.$container-sm;
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+        }
+
         &__input {
             width: 100%;
             height: 6rem;
@@ -63,6 +81,20 @@
 
             &::placeholder {
                 color: variables.$color-grayish-blue;
+            }
+
+            @media screen and (min-width: variables.$screen-md) {
+                flex: 1 1 70%;
+                margin-right: 2rem;
+            }
+        }
+
+        &__button {
+            width: 100%;
+            height: auto;
+
+            @media screen and (min-width: variables.$screen-md) {
+                flex: 1 1 30%;
             }
         }
     }

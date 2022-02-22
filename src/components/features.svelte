@@ -1,5 +1,6 @@
 <script lang="ts">
     import Tabs from '@components/tabs.svelte'
+    import Tab from '@components/tab.svelte'
     import Feature from '@components/feature.svelte'
     import TabImage1 from '@assets/images/illustration-features-tab-1.svg'
     import TabImage2 from '@assets/images/illustration-features-tab-2.svg'
@@ -45,16 +46,17 @@
         <div class="features__container">
             <h2 class="features__title">Features</h2>
             <p class="features__subtitle">Our aim is to make it quick and easy for you to access your favorite websites. Your bookmarks sync between your devices so you can access them on the go.</p>
-            <Tabs
-                tabs={features.map(feature => feature.tabName)}
-                activeTab={activeFeatureIndex}
-                setActiveTab={handleActiveFeature}
-            />
+            <ul class="features__tabs">
+                {#each features as feature, index}
+                    <Tab
+                        active={activeFeatureIndex === index}
+                        tabLabel={feature.tabName}
+                        on:click={() => handleActiveFeature(index)}
+                    />   
+                {/each}
+            </ul>
+            <Feature feature={activeFeature} />
         </div>
-    
-        <Feature
-            feature={activeFeature}
-        />
     </div>
 </template>
 
@@ -81,6 +83,14 @@
             @include mixins.text-body;
             text-align: center;
             margin-bottom: 4rem;
+        }
+
+        &__tabs {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: auto;
+            margin-bottom: 10rem;
         }
     }
 </style>

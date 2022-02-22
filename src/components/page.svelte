@@ -32,9 +32,15 @@
 </template>
 
 <style lang="scss">
+    @use '../assets/styles/variables';
+
     .page {
         width: 100%;
         height: auto;
         padding-top: 8rem;
+
+        @media screen and (min-width: variables.$screen-lg) {
+            padding-top: 10rem;
+        }
     }
 </style>

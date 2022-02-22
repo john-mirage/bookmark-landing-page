@@ -13,7 +13,7 @@
 </script>
 
 <template>
-    <div class="drawer">
+    <aside class="drawer">
         <header class="drawer__header">
             <BookmarkIcon
                 textColor="#fff"
@@ -39,7 +39,7 @@
         <footer class="drawer__footer">
             <SocialNetworks />
         </footer>
-    </div>
+    </aside>
 </template>
 
 <style lang="scss">

@@ -60,7 +60,13 @@
         }
 
         &__answer {
+            width: 100%;
+            height: auto;
             padding-bottom: 2rem;
+
+            @media screen and (min-width: variables.$screen-md) {
+                padding-right: 6.8rem;
+            }
         }
 
         &__answer-text {

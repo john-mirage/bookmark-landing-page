@@ -10,39 +10,69 @@
 
 <template>
     <footer class="footer">
-        <BookmarkIcon textColor="#fff" />
-        <nav class="footer__navigation">
-            {#each links as link}
-                <a class="footer__link" href="/">{ link }</a>
-            {/each}
-        </nav>
-        <SocialNetworks />
+        <div class="footer__container">
+            <div class="footer__logo">
+                <BookmarkIcon textColor="#fff" />
+            </div>
+            <nav class="footer__navigation">
+                {#each links as link}
+                    <a class="footer__link" href="/">{ link }</a>
+                {/each}
+            </nav>
+            <div class="footer__social-networks">
+                <SocialNetworks />
+            </div>
+        </div>
     </footer>
 </template>
 
 <style lang="scss">
     @use '../assets/styles/variables';
+    @use '../assets/styles/mixins';
 
     .footer {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
         width: 100%;
         height: auto;
         padding-top: 4rem;
         padding-bottom: 4rem;
         background-color: variables.$color-very-dark-blue;
 
+        &__container {
+            @include mixins.container;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+
+            @media screen and (min-width: variables.$screen-md) {
+                flex-direction: row;
+            }
+        }
+
+        &__logo {
+            width: auto;
+            height: auto;
+
+            @media screen and (min-width: variables.$screen-md) {
+                flex: 0 0 auto;
+            }
+        }
+
         &__navigation {
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            width: 100%;
+            width: auto;
             height: auto;
             margin-top: 4rem;
-            margin-bottom: 6rem;
+
+            @media screen and (min-width: variables.$screen-md) {
+                flex: 1 1 0%;
+                flex-direction: row;
+                margin-top: 0;
+                margin-left: 6rem;
+            }
         }
 
         &__link {
@@ -54,8 +84,20 @@
             letter-spacing: 0.2rem;
             margin-bottom: 4rem;
 
-            &:last-child {
+            @media screen and (min-width: variables.$screen-md) {
                 margin-bottom: 0;
+                margin-right: 2rem;
+            }
+        }
+
+        &__social-networks {
+            width: auto;
+            height: auto;
+
+            @media screen and (min-width: variables.$screen-md) {
+                flex: 0 0 auto;
+                flex-direction: row;
+                margin-left: auto;
             }
         }
     }
