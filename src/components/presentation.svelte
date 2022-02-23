@@ -15,11 +15,7 @@
     @use '../assets/styles/mixins';
 
     .presentation {
-        width: 100%;
-        max-width: variables.$container-sm;
-        height: auto;
-        margin-left: auto;
-        margin-right: auto;
+        @include mixins.container-sm;
 
         &__title {
             @include mixins.text-display;

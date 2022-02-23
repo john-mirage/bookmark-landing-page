@@ -75,7 +75,7 @@
         }
 
         &__container {
-            @include mixins.container;
+            @include mixins.container-2xl;
             display: flex;
             flex-direction: row;
             justify-content: flex-start;

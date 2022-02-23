@@ -49,6 +49,7 @@
 
 <style lang="scss">
     @use '../assets/styles/variables';
+    @use '../assets/styles/mixins';
 
     .contact {
         margin-top: 4rem;
@@ -59,16 +60,7 @@
         background-color: variables.$color-soft-blue;
 
         &__container {
-            width: 100%;
-            height: auto;
-            padding-left: 2.4rem;
-            padding-right: 2.4rem;
-
-            @media screen and (min-width: variables.$screen-sm) {
-                width: variables.$container-sm;
-                margin-left: auto;
-                margin-right: auto;
-            }
+            @include mixins.container-sm;
         }
 
         &__members {

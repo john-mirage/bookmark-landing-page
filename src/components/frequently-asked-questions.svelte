@@ -24,19 +24,17 @@
 
 <template>
     <div class="faqs">
-        <div class="faqs__container">
-            <Presentation
-                sectionTitle="Frequently Asked Questions"
-                sectionSubtitle="Here are some of our FAQs. If you have any other questions you'd like answered please feel free to email us."
-            />
-            <ul class="faqs__list">
-                {#each faqs as faq}
-                    <FrequentlyAskedQuestion faq={faq} />
-                {/each}
-            </ul>
-            <div class="faqs__button">
-                <Button color="blue">More Info</Button>
-            </div>
+        <Presentation
+            sectionTitle="Frequently Asked Questions"
+            sectionSubtitle="Here are some of our FAQs. If you have any other questions you'd like answered please feel free to email us."
+        />
+        <ul class="faqs__list">
+            {#each faqs as faq}
+                <FrequentlyAskedQuestion faq={faq} />
+            {/each}
+        </ul>
+        <div class="faqs__button">
+            <Button color="blue">More Info</Button>
         </div>
     </div>
 </template>
@@ -51,16 +49,10 @@
         padding-top: 10rem;
         padding-bottom: 10rem;
 
-        &__container {
-            @include mixins.container;
-        }
-
         &__list {
+            @include mixins.container-md;
             width: 100%;
-            max-width: variables.$container-md;
             height: auto;
-            margin-left: auto;
-            margin-right: auto;
             margin-bottom: 4rem;
         }
 

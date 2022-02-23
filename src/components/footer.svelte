@@ -32,7 +32,7 @@
         background-color: variables.$color-very-dark-blue;
 
         &__container {
-            @include mixins.container;
+            @include mixins.container-2xl;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;

@@ -28,20 +28,18 @@
 
 <template>
     <div class="extensions">
-        <div class="extensions__container">
-            <Presentation
-                sectionTitle="Download the extension"
-                sectionSubtitle="We've got more browsers in the pipeline. Please do let us know if you've got a favourite you'd like us to prioritize."
-            />
-            <ul class="extensions__list">
-                {#each browsers as browser, index}
-                    <Extension
-                        browser={browser}
-                        index={index}
-                    />
-                {/each}
-            </ul>
-        </div>
+        <Presentation
+            sectionTitle="Download the extension"
+            sectionSubtitle="We've got more browsers in the pipeline. Please do let us know if you've got a favourite you'd like us to prioritize."
+        />
+        <ul class="extensions__list">
+            {#each browsers as browser, index}
+                <Extension
+                    browser={browser}
+                    index={index}
+                />
+            {/each}
+        </ul>
     </div>
 </template>
 
@@ -58,20 +56,12 @@
         @media screen and (min-width: variables.$screen-lg) {
             margin-bottom: 8rem;
         }
-
-        &__container {
-            @include mixins.container;
-        }
         
         &__list {
+            @include mixins.container-xl;
             display: grid;
             grid-template-columns: 1fr;
             gap: 3rem;
-            width: 100%;
-            max-width: variables.$container-xl;
-            height: auto;
-            margin-left: auto;
-            margin-right: auto;
 
             @media screen and (min-width: variables.$screen-md) {
                 grid-template-columns: repeat(2, 1fr);

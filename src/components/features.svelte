@@ -43,22 +43,20 @@
 
 <template>
     <div class="features">
-        <div class="features__container">
-            <Presentation
-                sectionTitle="Features"
-                sectionSubtitle="Our aim is to make it quick and easy for you to access your favorite websites. Your bookmarks sync between your devices so you can access them on the go."
-            />
-            <ul class="features__tabs">
-                {#each features as feature, index}
-                    <Tab
-                        active={activeFeatureIndex === index}
-                        tabLabel={feature.tabName}
-                        on:click={() => handleActiveFeature(index)}
-                    />   
-                {/each}
-            </ul>
-            <Feature feature={activeFeature} />
-        </div>
+        <Presentation
+            sectionTitle="Features"
+            sectionSubtitle="Our aim is to make it quick and easy for you to access your favorite websites. Your bookmarks sync between your devices so you can access them on the go."
+        />
+        <ul class="features__tabs">
+            {#each features as feature, index}
+                <Tab
+                    active={activeFeatureIndex === index}
+                    tabLabel={feature.tabName}
+                    on:click={() => handleActiveFeature(index)}
+                />   
+            {/each}
+        </ul>
+        <Feature feature={activeFeature} />
     </div>
 </template>
 
@@ -72,18 +70,10 @@
         padding-top: 10rem;
         padding-bottom: 10rem;
 
-        &__container {
-            @include mixins.container;
-        }
-
         &__tabs {
+            @include mixins.container-md;
             display: flex;
             flex-direction: column;
-            width: 100%;
-            max-width: variables.$container-md;
-            height: auto;
-            margin-left: auto;
-            margin-right: auto;
             margin-bottom: 10rem;
             border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
 
