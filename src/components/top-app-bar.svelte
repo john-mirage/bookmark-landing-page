@@ -28,9 +28,9 @@
         class:top-app-bar--shadow={topAppBarHasShadow}
     >
         <div class="top-app-bar__container">
-            <div class="top-app-bar__logo">
+            <a class="top-app-bar__logo" href="/">
                 <BookmarkIcon />
-            </div>
+            </a>
 
             <div class="top-app-bar__menu-button" on:click>
                 <IconButton>
@@ -43,7 +43,7 @@
             </div>
 
             <div class="top-app-bar__login-button">
-                <Button color="red">Login</Button>
+                <Button color="red" isUppercase>Login</Button>
             </div>
         </div>
     </header>
@@ -85,7 +85,11 @@
         }
 
         &__logo {
-            width: 18rem;
+            width: 14rem;
+
+            @media screen and (min-width: variables.$screen-md) {
+                width: 18rem;
+            }
         }
 
         &__menu-button {

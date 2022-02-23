@@ -29,19 +29,23 @@
     @use '../assets/styles/mixins';
 
     .navigation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         width: auto;
         height: auto;
 
         @media screen and (min-width: variables.$screen-md) {
-            display: flex;
             flex-direction: row;
             margin-left: -2rem;
             margin-right: -2rem;
         }
 
         &__link {
+            display: block;
+            padding: 2rem;
 
-            @media screen and (min-width: variables.$screen-md) {
+            @media screen and (min-width: variables.$screen-lg) {
                 padding: 1rem 2rem;
             }
         }

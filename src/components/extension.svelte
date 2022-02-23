@@ -7,15 +7,16 @@
         imageSrc: string;
     }
     export let browser: Browser
+    export let index: number
 </script>
 
 <template>
-    <li class="browser">
+    <li class={index > 0 ? `browser browser--${index + 1}` : "browser"}>
         <img class="browser__logo" src={browser.imageSrc} alt={browser.imageAlt}>
         <h4 class="browser__name">Add to { browser.name }</h4>
-        <p class="browser__min-version">Minimum version { browser.minVersion }</p>
+        <p class="browser__version">Minimum version { browser.minVersion }</p>
         <div class="browser__divider"></div>
-        <Button type="primary">Add & Install Extension</Button>
+        <Button color="blue">Add & Install Extension</Button>
     </li>
 </template>
 
@@ -38,6 +39,18 @@
             margin-bottom: 0;
         }
 
+        &--2 {
+            @media screen and (min-width: variables.$screen-lg) {
+                transform: translateY(4rem);
+            }
+        }
+
+        &--3 {
+            @media screen and (min-width: variables.$screen-lg) {
+                transform: translateY(8rem);
+            }
+        }
+
         &__logo {
             margin-bottom: 4rem;
         }
@@ -51,7 +64,7 @@
             margin-bottom: 0.4rem;
         }
 
-        &__min-version {
+        &__version {
             font-size: 1.8rem;
             font-weight: 400;
             color: variables.$color-grayish-blue;

@@ -1,25 +1,19 @@
 <script lang="ts">
     import BookmarkIcon from '@components/icon-bookmark.svelte'
+    import Navigation from '@components/navigation.svelte';
     import SocialNetworks from '@components/social-networks.svelte'
-    const links = [
-        "features",
-        "pricing",
-        "contact",
-    ]
 </script>
 
 <template>
     <footer class="footer">
         <div class="footer__container">
-            <div class="footer__logo">
+            <a class="footer__logo" href="/">
                 <BookmarkIcon textColor="#fff" />
+            </a>
+            <div class="footer__navigation">
+                <Navigation onDark />
             </div>
-            <nav class="footer__navigation">
-                {#each links as link}
-                    <a class="footer__link" href="/">{ link }</a>
-                {/each}
-            </nav>
-            <div class="footer__social-networks">
+            <div class="footer__social">
                 <SocialNetworks />
             </div>
         </div>
@@ -44,57 +38,35 @@
             justify-content: flex-start;
             align-items: center;
 
-            @media screen and (min-width: variables.$screen-md) {
+            @media screen and (min-width: variables.$screen-lg) {
                 flex-direction: row;
             }
         }
 
         &__logo {
-            width: auto;
+            width: 16rem;
             height: auto;
 
-            @media screen and (min-width: variables.$screen-md) {
+            @media screen and (min-width: variables.$screen-lg) {
                 flex: 0 0 auto;
+                margin-right: 8rem;
             }
         }
 
         &__navigation {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            width: auto;
-            height: auto;
-            margin-top: 4rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
 
-            @media screen and (min-width: variables.$screen-md) {
-                flex: 1 1 0%;
-                flex-direction: row;
-                margin-top: 0;
-                margin-left: 6rem;
+            @media screen and (min-width: variables.$screen-lg) {
+                margin: 0;
             }
         }
 
-        &__link {
-            font-size: 1.6rem;
-            font-weight: 400;
-            color: variables.$color-white;
-            text-transform: uppercase;
-            text-decoration: none;
-            letter-spacing: 0.2rem;
-            margin-bottom: 4rem;
-
-            @media screen and (min-width: variables.$screen-md) {
-                margin-bottom: 0;
-                margin-right: 2rem;
-            }
-        }
-
-        &__social-networks {
+        &__social {
             width: auto;
             height: auto;
 
-            @media screen and (min-width: variables.$screen-md) {
+            @media screen and (min-width: variables.$screen-lg) {
                 flex: 0 0 auto;
                 flex-direction: row;
                 margin-left: auto;

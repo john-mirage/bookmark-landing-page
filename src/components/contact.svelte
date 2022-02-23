@@ -10,7 +10,7 @@
             <div class="contact__form">
                 <input class="contact__input" placeholder="Enter your email address" type="text">
                 <div class="contact__button">
-                    <Button type="contact">Contact Us</Button>
+                    <Button color="red" onDark>Contact Us</Button>
                 </div>
             </div>
         </div>
@@ -19,9 +19,9 @@
 
 <style lang="scss">
     @use '../assets/styles/variables';
-    @use '../assets/styles/mixins';
 
     .contact {
+        margin-top: 4rem;
         padding-top: 6rem;
         padding-bottom: 6rem;
         width: 100%;
@@ -29,7 +29,16 @@
         background-color: variables.$color-soft-blue;
 
         &__container {
-            @include mixins.container;
+            width: 100%;
+            height: auto;
+            padding-left: 2.4rem;
+            padding-right: 2.4rem;
+
+            @media screen and (min-width: variables.$screen-sm) {
+                width: variables.$container-sm;
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
 
         &__members {
@@ -40,12 +49,17 @@
             letter-spacing: 0.4rem;
             text-align: center;
             margin-bottom: 2rem;
+
+            @media screen and (min-width: variables.$screen-md) {
+                margin-bottom: 4rem;
+            }
         }
 
         &__cta {
             font-size: 3rem;
             font-weight: 500;
             color: variables.$color-white;
+            line-height: 4rem;
             text-align: center;
             margin-bottom: 4rem;
         }
@@ -55,9 +69,6 @@
             height: auto;
 
             @media screen and (min-width: variables.$screen-md) {
-                width: variables.$container-sm;
-                margin-left: auto;
-                margin-right: auto;
                 display: flex;
                 flex-direction: row;
                 justify-content: flex-start;
@@ -66,7 +77,7 @@
 
         &__input {
             width: 100%;
-            height: 6rem;
+            height: 4.8rem;
             background-color: variables.$color-white;
             border-radius: 0.6rem;
             margin-bottom: 2rem;
@@ -84,7 +95,7 @@
             }
 
             @media screen and (min-width: variables.$screen-md) {
-                flex: 1 1 70%;
+                flex: 1 1 65%;
                 margin-right: 2rem;
             }
         }
@@ -94,7 +105,7 @@
             height: auto;
 
             @media screen and (min-width: variables.$screen-md) {
-                flex: 1 1 30%;
+                flex: 1 1 35%;
             }
         }
     }

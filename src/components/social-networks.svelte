@@ -1,34 +1,22 @@
 <script lang="ts">
-    import FacebookIcon from '@components/icon-facebook.svelte'
-    import TwitterIcon from '@components/icon-twitter.svelte'
+    import FacebookLink from '@components/link-facebook.svelte'
+    import TwitterLink from '@components/link-twitter.svelte'
 </script>
 
 <template>
-    <ul class="social-networks">
-        <li class="social-networks__item">
-            <FacebookIcon />
-        </li>
-        <li class="social-networks__item">
-            <TwitterIcon />
-        </li>
-    </ul>
+    <nav class="social-networks">
+        <FacebookLink />
+        <TwitterLink />
+    </nav>
 </template>
 
 <style lang="scss">
     .social-networks {
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        width: 100%;
+        width: 8.8rem;
         height: auto;
-
-        &__item {
-            margin-right: 4rem;
-
-            &:last-child {
-                margin-right: 0;
-            }
-        }
     }
 </style>

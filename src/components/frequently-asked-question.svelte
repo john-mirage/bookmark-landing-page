@@ -10,13 +10,13 @@
 </script>
 
 <template>
-    <li class="faq" on:click={() => faqIsActive = !faqIsActive}>
+    <li class="faq">
 
-        <div class="faq__question">
+        <div class="faq__question" on:click={() => faqIsActive = !faqIsActive}>
             <h4 class="faq__question-text">{ faq.question }</h4>
-            <div class="faq__question-button" style:transform={faqIsActive ? "rotate(180deg)" : "none"}>
+            <div class="faq__question-button" class:faq__question-button--active={faqIsActive}>
                 <IconButton>
-                    <ArrowIcon />
+                    <ArrowIcon active={faqIsActive} />
                 </IconButton>
             </div>
         </div>
@@ -44,6 +44,7 @@
             align-items: center;
             padding-top: 1rem;
             padding-bottom: 1rem;
+            cursor: pointer;
         }
 
         &__question-text {
@@ -52,6 +53,11 @@
             font-weight: 400;
             color: variables.$color-very-dark-blue;
             line-height: 2.8rem;
+            transition: color 150ms;
+
+            .faq__question:hover & {
+                color: variables.$color-soft-red;
+            }
         }
 
         &__question-button {

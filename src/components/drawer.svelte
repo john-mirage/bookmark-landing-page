@@ -15,12 +15,14 @@
 <template>
     <aside class="drawer">
         <header class="drawer__header">
-            <BookmarkIcon
-                textColor="#fff"
-                circleColor="#fff"
-                iconColor="#252b46"
-            />
-            <div class="drawer__close-icon" on:click>
+            <div class="drawer__logo">
+                <BookmarkIcon
+                    textColor="#fff"
+                    circleColor="#fff"
+                    iconColor="#252b46"
+                />
+            </div>
+            <div class="drawer__close-button" on:click>
                 <IconButton>
                     <CloseIcon />
                 </IconButton>
@@ -33,7 +35,7 @@
                     <a class="drawer__navigation-item" href="/">{ link }</a>
                 {/each}
             </nav>
-            <Button type="outlined">Login</Button>
+            <Button isOutlined isUppercase>Login</Button>
         </div>
 
         <footer class="drawer__footer">
@@ -70,7 +72,12 @@
             margin-bottom: 3rem;
         }
 
-        &__close-icon {
+        &__logo {
+            width: 20rem;
+            height: auto;
+        }
+
+        &__close-button {
             margin-right: -1.6rem;
         }
 

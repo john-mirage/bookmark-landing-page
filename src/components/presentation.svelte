@@ -1,0 +1,36 @@
+<script lang="ts">
+    export let sectionTitle: string
+    export let sectionSubtitle: string
+</script>
+
+<template>
+    <div class="presentation">
+        <h2 class="presentation__title">{ sectionTitle }</h2>
+        <p class="presentation__subtitle">{ sectionSubtitle }</p>
+    </div>
+</template>
+
+<style lang="scss">
+    @use '../assets/styles/variables';
+    @use '../assets/styles/mixins';
+
+    .presentation {
+        width: 100%;
+        max-width: variables.$container-sm;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+
+        &__title {
+            @include mixins.text-display;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        &__subtitle {
+            @include mixins.text-body;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+    }
+</style>

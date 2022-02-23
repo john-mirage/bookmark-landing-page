@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Tabs from '@components/tabs.svelte'
+    import Presentation from '@components/presentation.svelte'
     import Tab from '@components/tab.svelte'
     import Feature from '@components/feature.svelte'
     import TabImage1 from '@assets/images/illustration-features-tab-1.svg'
@@ -44,8 +44,10 @@
 <template>
     <div class="features">
         <div class="features__container">
-            <h2 class="features__title">Features</h2>
-            <p class="features__subtitle">Our aim is to make it quick and easy for you to access your favorite websites. Your bookmarks sync between your devices so you can access them on the go.</p>
+            <Presentation
+                sectionTitle="Features"
+                sectionSubtitle="Our aim is to make it quick and easy for you to access your favorite websites. Your bookmarks sync between your devices so you can access them on the go."
+            />
             <ul class="features__tabs">
                 {#each features as feature, index}
                     <Tab
@@ -67,30 +69,28 @@
     .features {
         width: 100%;
         height: auto;
-        margin-bottom: 10rem;
+        padding-top: 10rem;
+        padding-bottom: 10rem;
 
         &__container {
             @include mixins.container;
-        }
-
-        &__title {
-            @include mixins.text-display;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        &__subtitle {
-            @include mixins.text-body;
-            text-align: center;
-            margin-bottom: 4rem;
         }
 
         &__tabs {
             display: flex;
             flex-direction: column;
             width: 100%;
+            max-width: variables.$container-md;
             height: auto;
+            margin-left: auto;
+            margin-right: auto;
             margin-bottom: 10rem;
+            border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+
+            @media screen and (min-width: variables.$screen-lg) {
+                flex-direction: row;
+                border: none;
+            }
         }
     }
 </style>

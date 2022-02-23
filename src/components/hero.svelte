@@ -100,6 +100,10 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: flex-start;
+
+            @media screen and (min-width: variables.$screen-lg) {
+                justify-content: flex-start;
+            }
         }
         
 

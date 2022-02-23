@@ -1,4 +1,5 @@
 <script lang="ts">
+    import Presentation from '@components/presentation.svelte'
     import FrequentlyAskedQuestion from "@components/frequently-asked-question.svelte";
     import Button from "@components/button.svelte"
     const faqs = [
@@ -24,14 +25,18 @@
 <template>
     <div class="faqs">
         <div class="faqs__container">
-            <h2 class="faqs__title">Frequently Asked Questions</h2>
-            <p class="faqs__subtitle">Here are some of our FAQs. If you have any other questions you'd like answered please feel free to email us.</p>
+            <Presentation
+                sectionTitle="Frequently Asked Questions"
+                sectionSubtitle="Here are some of our FAQs. If you have any other questions you'd like answered please feel free to email us."
+            />
             <ul class="faqs__list">
                 {#each faqs as faq}
                     <FrequentlyAskedQuestion faq={faq} />
                 {/each}
             </ul>
-            <Button type="primary" buttonWidth="auto" centered>More Info</Button>
+            <div class="faqs__button">
+                <Button color="blue">More Info</Button>
+            </div>
         </div>
     </div>
 </template>
@@ -43,34 +48,26 @@
     .faqs {
         width: 100%;
         height: auto;
-        margin-bottom: 10rem;
+        padding-top: 10rem;
+        padding-bottom: 10rem;
 
         &__container {
             @include mixins.container;
         }
 
-        &__title {
-            @include mixins.text-display;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        &__subtitle {
-            @include mixins.text-body;
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
         &__list {
             width: 100%;
+            max-width: variables.$container-md;
             height: auto;
+            margin-left: auto;
+            margin-right: auto;
             margin-bottom: 4rem;
+        }
 
-            @media screen and (min-width: variables.$screen-md) {
-                width: variables.$container-md;
-                margin-left: auto;
-                margin-right: auto;
-            }
+        &__button {
+            width: 20rem;
+            margin-left: auto;
+            margin-right: auto;
         }
     }
 </style>
