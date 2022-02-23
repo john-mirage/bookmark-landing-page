@@ -1,6 +1,6 @@
 @use './variables';
 
-@mixin container {
+@mixin container-sm {
     width: 100%;
     height: auto;
     padding-left: 2.4rem;
@@ -11,21 +11,53 @@
         margin-left: auto;
         margin-right: auto;
     }
+}
+
+@mixin container-md {
+    @include container-sm;
 
     @media screen and (min-width: variables.$screen-md) {
         width: variables.$container-md;
     }
+}
+
+@mixin container-lg {
+    @include container-md;
 
     @media screen and (min-width: variables.$screen-lg) {
         width: variables.$container-lg;
     }
+}
+
+@mixin container-xl {
+    @include container-lg;
 
     @media screen and (min-width: variables.$screen-xl) {
         width: variables.$container-xl;
     }
+}
+
+@mixin container-2xl {
+    @include container-xl;
 
     @media screen and (min-width: variables.$screen-2xl) {
         width: variables.$container-2xl;
+    }
+}
+
+@mixin container-half-lg {
+    @include container-md;
+
+    @media screen and (min-width: variables.$screen-lg) {
+        width: calc(variables.$container-lg / 2);
+    }
+
+    @media screen and (min-width: variables.$screen-xl) {
+        width: calc(variables.$container-xl / 2);
+    }
+
+    @media screen and (min-width: variables.$screen-2xl) {
+        width: calc(variables.$container-2xl / 2);
     }
 }
 
