@@ -13,6 +13,7 @@
         class:button--white={color === "white"}
         class:button--on-dark={onDark}
         class:button--outlined={isOutlined}
+        on:click|preventDefault
     >
         <span class="button__label" class:button__label--uppercase={isUppercase}>
             <slot />

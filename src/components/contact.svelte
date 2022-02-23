@@ -1,5 +1,21 @@
 <script lang="ts">
     import Button from '@components/button.svelte'
+    import ErrorIcon from '@components/icon-error.svelte'
+    import { string } from 'yup'
+
+    let textInput
+    let errorMessage: boolean = false
+
+    async function handleSubmit() {
+        console.log(textInput.classList)
+        const testedEmail = textInput.value
+        let schema = string().required().email()
+        if (await schema.isValid(testedEmail)) {
+            if (errorMessage) errorMessage = false
+        } else {
+            if (!errorMessage) errorMessage = true
+        }
+    }
 </script>
 
 <template>
@@ -8,9 +24,23 @@
             <p class="contact__members">35,000+ already joined</p>
             <h2 class="contact__cta">Stay up-to-date with what we're doing</h2>
             <div class="contact__form">
-                <input class="contact__input" placeholder="Enter your email address" type="text">
+                <div class="contact__input">
+                    <input
+                        class="contact__text-input"
+                        class:contact__text-input--error={errorMessage}
+                        placeholder="Enter your email address"
+                        type="text"
+                        bind:this={textInput}
+                    />
+                    {#if errorMessage}
+                        <p class="contact__error-message">Whoops, make sure it's an email</p>
+                        <div class="contact__error-icon">
+                            <ErrorIcon />
+                        </div>
+                    {/if}
+                </div>
                 <div class="contact__button">
-                    <Button color="red" onDark>Contact Us</Button>
+                    <Button on:click={handleSubmit} color="red" onDark>Contact Us</Button>
                 </div>
             </div>
         </div>
@@ -76,28 +106,71 @@
         }
 
         &__input {
+            position: relative;
             width: 100%;
             height: 4.8rem;
-            background-color: variables.$color-white;
-            border-radius: 0.6rem;
-            margin-bottom: 2rem;
-            padding-left: 2rem;
-            padding-right: 2rem;
-            font-size: 1.6rem;
-            font-weight: 400;
-            letter-spacing: 0.05rem;
-            color: variables.$color-very-dark-blue;
-            outline: none;
-            border: none;
-
-            &::placeholder {
-                color: variables.$color-grayish-blue;
-            }
+            margin-bottom: 3rem;
 
             @media screen and (min-width: variables.$screen-md) {
                 flex: 1 1 65%;
                 margin-right: 2rem;
+                margin-bottom: 0;
             }
+        }
+
+        &__text-input {
+            position: relative;
+            z-index: 20;
+            width: 100%;
+            height: 100%;
+            padding-left: 2rem;
+            padding-right: 5.2rem;
+            border-radius: 0.6rem;
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: 0.05rem;
+            color: variables.$color-very-dark-blue;
+            background-color: variables.$color-white;
+            outline: none;
+            border: none;
+
+            &--error {
+                border: 0.2rem solid variables.$color-soft-red;
+            }
+
+            &::placeholder {
+                color: variables.$color-grayish-blue;
+            }
+        }
+
+        &__error-message {
+            position: absolute;
+            z-index: 10;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            background-color: variables.$color-soft-red;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: variables.$color-white;
+            transform: translateY(calc(100% - 0.6rem));
+            padding-top: 0.8rem;
+            padding-bottom: 0.6rem;
+            padding-left: 1rem;
+            border-bottom-left-radius: 0.6rem;
+            border-bottom-right-radius: 0.6rem;
+            font-style: italic;
+        }
+
+        &__error-icon {
+            position: absolute;
+            z-index: 30;
+            top: 50%;
+            right: 1.6rem;
+            width: auto;
+            height: auto;
+            transform: translateY(-50%);
         }
 
         &__button {
