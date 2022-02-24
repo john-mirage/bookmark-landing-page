@@ -114,6 +114,11 @@
             text-transform: uppercase;
             text-align: center;
             letter-spacing: 0.4rem;
+            transition: color 150ms;
+
+            &:hover {
+                color: variables.$color-soft-red;
+            }
 
             &:last-child {
                 border-bottom: 0.1rem solid rgba(255, 255, 255, 0.1);
@@ -132,6 +137,12 @@
             text-transform: uppercase;
             letter-spacing: 0.2rem;
             margin-top: 4rem;
+            transition: color 150ms;
+
+            &:hover {
+                color: variables.$color-soft-red;
+                outline: 0.2rem solid variables.$color-soft-red;
+            }
         }
 
         &__footer {
