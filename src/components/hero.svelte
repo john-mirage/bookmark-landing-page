@@ -65,6 +65,7 @@
             @media screen and (min-width: variables.$screen-lg) {
                 align-items: flex-start;
                 text-align: start;
+                padding-right: 6rem;
             }
         }
         
@@ -114,7 +115,7 @@
         &__button {
             display: block;
             width: 100%;
-            padding: 2rem 3.2rem;
+            padding: 2rem 2.4rem;
             border-radius: 0.6rem;
             background-color: variables.$color-soft-red;
             color: variables.$color-white;

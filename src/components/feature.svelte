@@ -1,6 +1,5 @@
 <script lang="ts">
     import CallToAction from '@components/call-to-action.svelte'
-    import Button from '@components/button.svelte'
     interface Feature {
         name: string;
         tabName: string;
@@ -62,6 +61,7 @@
             @media screen and (min-width: variables.$screen-lg) {
                 align-items: flex-start;
                 text-align: start;
+                padding-left: 6rem;
             }
         }
 
