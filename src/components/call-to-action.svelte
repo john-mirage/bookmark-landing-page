@@ -103,7 +103,7 @@
             z-index: 10;
             bottom: 0;
             width: 80%;
-            height: 80%;
+            height: 90%;
             background-color: variables.$color-soft-blue;
 
             @media screen and (min-width: variables.$screen-lg) {

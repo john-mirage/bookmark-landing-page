@@ -47,7 +47,7 @@
             z-index: 20;
             width: 100%;
             height: auto;
-            padding-bottom: 20%;
+            padding-bottom: 18%;
         }
 
         &__content {
@@ -79,7 +79,7 @@
         &__subtitle {
             max-width: variables.$container-sm;
             @include mixins.text-body;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         &__button {

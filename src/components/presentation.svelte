@@ -16,6 +16,7 @@
 
     .presentation {
         @include mixins.container-sm;
+        margin-bottom: 6rem;
 
         &__title {
             @include mixins.text-display;
@@ -26,7 +27,6 @@
         &__subtitle {
             @include mixins.text-body;
             text-align: center;
-            margin-bottom: 4rem;
         }
     }
 </style>
