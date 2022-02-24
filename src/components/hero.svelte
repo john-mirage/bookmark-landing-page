@@ -38,7 +38,7 @@
         padding-bottom: 10rem;
 
         @media screen and (min-width: variables.$screen-lg) {
-            padding-top: 20rem;
+            padding-top: 16rem;
         }
 
         &__illustration {
@@ -80,12 +80,17 @@
             @media screen and (min-width: variables.$screen-lg) {
                 margin-top: 0;
             }
+
+            @media screen and (min-width: variables.$screen-xl) {
+                font-size: 5rem;
+                line-height: 6rem;
+            }
         }
 
         &__subtitle {
             max-width: variables.$container-sm;
             @include mixins.text-body;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         &__button-group {
