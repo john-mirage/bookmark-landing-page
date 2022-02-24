@@ -67,15 +67,13 @@
     .features {
         width: 100%;
         height: auto;
-        padding-top: 10rem;
         padding-bottom: 10rem;
 
         &__tabs {
             @include mixins.container-md;
             display: flex;
             flex-direction: column;
-            margin-bottom: 10rem;
-            border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+            margin-bottom: 4rem;
 
             @media screen and (min-width: variables.$screen-lg) {
                 flex-direction: row;

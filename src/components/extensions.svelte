@@ -50,7 +50,6 @@
     .extensions {
         width: 100%;
         height: auto;
-        padding-top: 10rem;
         padding-bottom: 10rem;
 
         @media screen and (min-width: variables.$screen-lg) {

@@ -1,5 +1,4 @@
 <script lang="ts">
-    import Button from '@components/button.svelte'
     import ErrorIcon from '@components/icon-error.svelte'
     import { string } from 'yup'
 
@@ -39,9 +38,7 @@
                         </div>
                     {/if}
                 </div>
-                <div class="contact__button">
-                    <Button on:click={handleSubmit} color="red" onDark>Contact Us</Button>
-                </div>
+                <button class="contact__button" on:click={handleSubmit}>Contact Us</button>
             </div>
         </div>
     </div>
@@ -100,11 +97,12 @@
         &__input {
             position: relative;
             width: 100%;
-            height: 4.8rem;
+            height: 5.4rem;
             margin-bottom: 3rem;
 
             @media screen and (min-width: variables.$screen-md) {
                 flex: 1 1 65%;
+                width: 65%;
                 margin-right: 2rem;
                 margin-bottom: 0;
             }
@@ -118,7 +116,7 @@
             padding-left: 2rem;
             padding-right: 5.2rem;
             border-radius: 0.6rem;
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             font-weight: 400;
             letter-spacing: 0.05rem;
             color: variables.$color-very-dark-blue;
@@ -166,11 +164,28 @@
         }
 
         &__button {
+            display: block;
             width: 100%;
-            height: auto;
+            height: 5.4rem;
+            text-align: center;
+            border-radius: 0.6rem;
+            background-color: variables.$color-soft-red;
+            color: variables.$color-white;
+            font-size: 1.6rem;
+            font-weight: 500;
+            line-height: 5.4rem;
+            transition-property: color, background-color;
+            transition-duration: 150ms;
+
+            &:hover {
+                background-color: variables.$color-white;
+                outline: 0.2rem solid variables.$color-soft-red;
+                color: variables.$color-soft-red;
+            }
 
             @media screen and (min-width: variables.$screen-md) {
                 flex: 1 1 35%;
+                width: 35%;
             }
         }
     }

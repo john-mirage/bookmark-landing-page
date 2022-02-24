@@ -3,7 +3,6 @@
     import IconButton from '@components/icon-button.svelte'
     import HamburgerIcon from '@components/icon-hamburger.svelte'
     import Navigation from '@components/navigation.svelte'
-    import Button from '@components/button.svelte'
     import { onMount } from 'svelte';
 
     let topAppBarHasShadow = false
@@ -42,9 +41,7 @@
                 <Navigation onLight />
             </div>
 
-            <div class="top-app-bar__login-button">
-                <Button color="red" isUppercase>Login</Button>
-            </div>
+            <button class="top-app-bar__login-button">Login</button>
         </div>
     </header>
 </template>
@@ -116,8 +113,24 @@
             display: none;
 
             @media screen and (min-width: variables.$screen-lg) {
-                display: block;
+                display: inline-block;
+                padding: 1.6rem 4rem;
+                border-radius: 0.6rem;
+                background-color: variables.$color-soft-red;
+                color: variables.$color-white;
+                font-size: 1.4rem;
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: 0.2rem;
                 margin-left: 6rem;
+                transition-property: color, background-color;
+                transition-duration: 150ms;
+
+                &:hover {
+                    background-color: transparent;
+                    outline: 0.2rem solid variables.$color-soft-red;
+                    color: variables.$color-soft-red;
+                }
             }
         }
     }

@@ -30,6 +30,18 @@
         border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
         cursor: pointer;
 
+        &:first-child {
+            border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+        }
+
+        @media screen and (min-width: variables.$screen-lg) {
+            width: 100%;
+
+            &:first-child {
+                border-top: none;
+            }
+        }
+
         &__label {
             display: block;
             width: 100%;

@@ -1,5 +1,4 @@
 <script lang="ts">
-    import Button from '@components/button.svelte'
     interface Browser {
         name: string;
         minVersion: string;
@@ -11,19 +10,19 @@
 </script>
 
 <template>
-    <li class={index > 0 ? `browser browser--${index + 1}` : "browser"}>
-        <img class="browser__logo" src={browser.imageSrc} alt={browser.imageAlt}>
-        <h4 class="browser__name">Add to { browser.name }</h4>
-        <p class="browser__version">Minimum version { browser.minVersion }</p>
-        <div class="browser__divider"></div>
-        <Button color="blue">Add & Install Extension</Button>
+    <li class={index > 0 ? `extension extension--${index + 1}` : "extension"}>
+        <img class="extension__logo" src={browser.imageSrc} alt={browser.imageAlt}>
+        <h4 class="extension__name">Add to { browser.name }</h4>
+        <p class="extension__version">Minimum version { browser.minVersion }</p>
+        <div class="extension__divider"></div>
+        <button class="extension__button">Add & Install Extension</button>
     </li>
 </template>
 
 <style lang="scss">
     @use '../assets/styles/variables';
 
-    .browser {
+    .extension {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -81,6 +80,25 @@
             margin-left: -2.4rem;
             margin-right: -2.4rem;
             margin-bottom: 2.4rem;
+        }
+
+        &__button {
+            display: block;
+            width: 100%;
+            padding: 2rem 3.2rem;
+            border-radius: 0.6rem;
+            background-color: variables.$color-soft-blue;
+            color: variables.$color-white;
+            font-size: 1.6rem;
+            font-weight: 500;
+            transition-property: color, background-color;
+            transition-duration: 150ms;
+
+            &:hover {
+                background-color: transparent;
+                outline: 0.2rem solid variables.$color-soft-blue;
+                color: variables.$color-soft-blue;
+            }
         }
     }
 </style>

@@ -1,7 +1,6 @@
 <script lang="ts">
     import Presentation from '@components/presentation.svelte'
     import FrequentlyAskedQuestion from "@components/frequently-asked-question.svelte";
-    import Button from "@components/button.svelte"
     const faqs = [
         {
             question: "What is Bookmark?",
@@ -33,9 +32,7 @@
                 <FrequentlyAskedQuestion faq={faq} />
             {/each}
         </ul>
-        <div class="faqs__button">
-            <Button color="blue">More Info</Button>
-        </div>
+        <button class="faqs__button">More Info</button>
     </div>
 </template>
 
@@ -46,7 +43,6 @@
     .faqs {
         width: 100%;
         height: auto;
-        padding-top: 10rem;
         padding-bottom: 10rem;
 
         &__list {
@@ -57,9 +53,23 @@
         }
 
         &__button {
-            width: 20rem;
+            display: block;
+            padding: 2rem 3.2rem;
+            border-radius: 0.6rem;
+            background-color: variables.$color-soft-blue;
+            color: variables.$color-white;
+            font-size: 1.6rem;
+            font-weight: 500;
+            transition-property: color, background-color;
+            transition-duration: 150ms;
             margin-left: auto;
             margin-right: auto;
+
+            &:hover {
+                background-color: transparent;
+                outline: 0.2rem solid variables.$color-soft-blue;
+                color: variables.$color-soft-blue;
+            }
         }
     }
 </style>

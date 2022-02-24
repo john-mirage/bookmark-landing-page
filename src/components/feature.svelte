@@ -23,10 +23,10 @@
             </svelte:fragment>
 
             <svelte:fragment slot="right">
-                <h3 class="feature__title">{ feature.name }</h3>
-                <p class="feature__subtitle">{ feature.description }</p>
-                <div class="feature__button">
-                    <Button color="blue">More Info</Button>
+                <div class="feature__content">
+                    <h3 class="feature__title">{ feature.name }</h3>
+                    <p class="feature__subtitle">{ feature.description }</p>
+                    <button class="feature__button">More Info</button>
                 </div>
             </svelte:fragment>
         </CallToAction>
@@ -41,25 +41,37 @@
         width: 100%;
         height: auto;
         padding-top: 5rem;
-        padding-bottom: 10rem;
 
         &__illustration {
             position: relative;
             z-index: 20;
             width: 100%;
             height: auto;
-            padding-bottom: 12%;
+            padding-bottom: 20%;
+        }
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            height: auto;
+            text-align: center;
+
+            @media screen and (min-width: variables.$screen-lg) {
+                align-items: flex-start;
+                text-align: start;
+            }
         }
 
         &__title {
             max-width: variables.$container-sm;
             @include mixins.text-display;
-            text-align: center;
             margin-top: 6rem;
             margin-bottom: 2rem;
 
             @media screen and (min-width: variables.$screen-lg) {
-                text-align: start;
                 margin-top: 0;
             }
         }
@@ -67,12 +79,7 @@
         &__subtitle {
             max-width: variables.$container-sm;
             @include mixins.text-body;
-            text-align: center;
             margin-bottom: 4rem;
-
-            @media screen and (min-width: variables.$screen-lg) {
-                text-align: start;
-            }
         }
 
         &__button {
@@ -80,7 +87,20 @@
 
             @media screen and (min-width: variables.$screen-lg) {
                 display: block;
-                width: 20rem;
+                padding: 2rem 3.2rem;
+                border-radius: 0.6rem;
+                background-color: variables.$color-soft-blue;
+                color: variables.$color-white;
+                font-size: 1.6rem;
+                font-weight: 500;
+                transition-property: color, background-color;
+                transition-duration: 150ms;
+
+                &:hover {
+                    background-color: transparent;
+                    outline: 0.2rem solid variables.$color-soft-blue;
+                    color: variables.$color-soft-blue;
+                }
             }
         }
     }

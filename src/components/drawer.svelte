@@ -2,7 +2,6 @@
     import BookmarkIcon from '@components/icon-bookmark.svelte'
     import IconButton from '@components/icon-button.svelte';
     import CloseIcon from '@components/icon-close.svelte'
-    import Button from '@components/button.svelte'
     import SocialNetworks from '@components/social-networks.svelte'
 
     const links = [
@@ -36,7 +35,7 @@
                         <a class="drawer__navigation-item" href="/">{ link }</a>
                     {/each}
                 </nav>
-                <Button isOutlined isUppercase>Login</Button>
+                <button class="drawer__login-button">Login</button>
             </div>
     
             <footer class="drawer__footer">
@@ -99,7 +98,6 @@
         &__navigation {
             width: 100%;
             height: auto;
-            margin-bottom: 2rem;
         }
 
         &__navigation-item {
@@ -109,7 +107,7 @@
             padding-top: 2rem;
             padding-bottom: 2rem;
             border-top: 0.1rem solid rgba(255, 255, 255, 0.1);
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-weight: 400;
             color: variables.$color-white;
             text-decoration: none;
@@ -120,6 +118,20 @@
             &:last-child {
                 border-bottom: 0.1rem solid rgba(255, 255, 255, 0.1);
             }
+        }
+
+        &__login-button {
+            display: block;
+            width: 100%;
+            padding: 1.6rem 4rem;
+            border-radius: 0.6rem;
+            color: variables.$color-white;
+            outline: 0.2rem solid variables.$color-white;
+            font-size: 1.4rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            margin-top: 4rem;
         }
 
         &__footer {
