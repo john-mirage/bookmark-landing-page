@@ -75,7 +75,7 @@
         &__divider {
             width: calc(100% + 4.8rem);
             height: 0.4rem;
-            background-image: url(/bookmark-landing-page/src/assets/images/bg-dots.svg);
+            background-image: url(/bookmark-landing-page/assets/images/bg-dots.svg);
             background-repeat: repeat-x;
             margin-left: -2.4rem;
             margin-right: -2.4rem;

@@ -8,7 +8,7 @@
             <svelte:fragment slot="left">
                 <img
                     class="hero__illustration"
-                    src="/bookmark-landing-page/src/assets/images/illustration-hero.svg"
+                    src="/bookmark-landing-page/assets/images/illustration-hero.svg"
                     alt="Tablet illustration"
                 >
             </svelte:fragment>
