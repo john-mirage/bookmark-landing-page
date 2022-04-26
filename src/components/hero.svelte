@@ -1,5 +1,6 @@
 <script lang="ts">
     import CallToAction from '@components/call-to-action.svelte'
+    import heroIllustration from '@assets/images/illustration-hero.svg';
 </script>
 
 <template>
@@ -8,7 +9,7 @@
             <svelte:fragment slot="left">
                 <img
                     class="hero__illustration"
-                    src="/bookmark-landing-page/assets/images/illustration-hero.svg"
+                    src={heroIllustration}
                     alt="Tablet illustration"
                 >
             </svelte:fragment>
